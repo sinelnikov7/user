@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add user</title>
+</head>
+<body>
+{% for user in users %}
+    <p><a href="{% url 'user:user_detail' pk=user.pk %}">{{ user.username }}</a></p>
+{% endfor %}
+
+    <form action="" method="POST">{% csrf_token %}<button>Добавить</button></form>
+</body>
+</html>
