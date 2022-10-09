@@ -5,9 +5,7 @@ from django.shortcuts import render, redirect
 
 from .models import User
 
-
 def add_user(request):
-
     last_user = User.objects.all().last()
     slots = ''
     need_button_add_user = True
@@ -37,7 +35,6 @@ def add_user(request):
         'need_button_add_user': need_button_add_user
     }
     return render(request, 'add_user.html', context)
-
 
 def users_delete(request):
     connect = sqlite3.connect('db.sqlite3')
