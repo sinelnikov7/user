@@ -5,10 +5,15 @@
     <title>Add user</title>
 </head>
 <body>
-{% for user in users %}
-    <p><a href="{% url 'user:user_detail' pk=user.pk %}">{{ user.username }}</a></p>
-{% endfor %}
 
-    <form action="" method="POST">{% csrf_token %}<button>Добавить</button></form>
+    <p>{{ slots }}</p>
+    {% if need_button_add_user == True %}
+    <p><form action="" method="POST">{% csrf_token %}<button>Добавить</button></form></p>
+    {% endif %}
+    {% if need_buttons_delete_and_all_users == True %}
+    <p><form action="{% url 'user:all_users' %}">{% csrf_token %}<button>Все юзеры</button></form></p>
+    <p><form action="{% url 'user:users_delete' %}">{% csrf_token %}<button>Удалить</button></form></p>
+    {% endif %}
+
 </body>
 </html>
